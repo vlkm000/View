@@ -58,6 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FilterSize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilterSize.Designer.cs">
+      <DependentUpon>FilterSize.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImProc_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FilterSize.resx">
+      <DependentUpon>FilterSize.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ImProc_Form.resx">
       <DependentUpon>ImProc_Form.cs</DependentUpon>
     </EmbeddedResource>
