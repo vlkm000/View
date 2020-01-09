@@ -57,5 +57,19 @@ namespace MyView
                 imageBox1.Image = dst;
             }
         }
+
+        private void meanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!src.IsEmpty)
+            {
+                FilterSize fs = new FilterSize();
+                fs.ShowDialog();
+                dst = new Mat();
+                dst = src;
+                CvInvoke.Blur(src, dst, new Size(par,par), new Point(-1,-1) );
+                imageBox1.Image = dst;
+            }
+
+        }
     }
 }
