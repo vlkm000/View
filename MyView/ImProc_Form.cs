@@ -52,7 +52,7 @@ namespace MyView
                 FilterSize fs = new FilterSize();
                 fs.ShowDialog();
                 dst = new Mat();
-                dst = src;
+                dst = src.Clone();
                 CvInvoke.MedianBlur(src, dst, par);
                 imageBox1.Image = dst;
             }
@@ -65,10 +65,30 @@ namespace MyView
                 FilterSize fs = new FilterSize();
                 fs.ShowDialog();
                 dst = new Mat();
-                dst = src;
+                dst = src.Clone();
                 CvInvoke.Blur(src, dst, new Size(par,par), new Point(-1,-1) );
                 imageBox1.Image = dst;
             }
+
+        }
+        private void ImageBox1_MouseDoubleClick(object sender, EventArgs e)
+        {
+            imageBox1.Image = src;
+        }
+        private void gaussianBlurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dst = new Mat();
+            dst = src.Clone();
+            CvInvoke.GaussianBlur(src, dst, new Size(3, 3), 1.5);
+            imageBox1.Image = dst;
+        }
+
+        private void cannyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dst = new Mat();
+            dst = src.Clone();
+            CvInvoke.Canny(src, dst, 100, 200);
+            imageBox1.Image = dst;
 
         }
     }

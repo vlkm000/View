@@ -37,6 +37,9 @@
             this.processingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.medianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.meanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gaussianBlurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.cannyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -52,6 +55,8 @@
             this.imageBox1.Size = new System.Drawing.Size(776, 363);
             this.imageBox1.TabIndex = 2;
             this.imageBox1.TabStop = false;
+            this.imageBox1.MouseDoubleClick += ImageBox1_MouseDoubleClick;
+            //this.imageBox1.MouseDoubleClick += ImageBox1_MouseDoubleClick;
             // 
             // menuStrip1
             // 
@@ -92,7 +97,10 @@
             // 
             this.processingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.medianToolStripMenuItem,
-            this.meanToolStripMenuItem});
+            this.meanToolStripMenuItem,
+            this.gaussianBlurToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.cannyToolStripMenuItem});
             this.processingToolStripMenuItem.Name = "processingToolStripMenuItem";
             this.processingToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
             this.processingToolStripMenuItem.Text = "Processing";
@@ -110,6 +118,25 @@
             this.meanToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.meanToolStripMenuItem.Text = "Mean";
             this.meanToolStripMenuItem.Click += new System.EventHandler(this.meanToolStripMenuItem_Click);
+            // 
+            // gaussianBlurToolStripMenuItem
+            // 
+            this.gaussianBlurToolStripMenuItem.Name = "gaussianBlurToolStripMenuItem";
+            this.gaussianBlurToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.gaussianBlurToolStripMenuItem.Text = "GaussianBlur";
+            this.gaussianBlurToolStripMenuItem.Click += new System.EventHandler(this.gaussianBlurToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(221, 6);
+            // 
+            // cannyToolStripMenuItem
+            // 
+            this.cannyToolStripMenuItem.Name = "cannyToolStripMenuItem";
+            this.cannyToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.cannyToolStripMenuItem.Text = "Canny";
+            this.cannyToolStripMenuItem.Click += new System.EventHandler(this.cannyToolStripMenuItem_Click);
             // 
             // ImProc
             // 
@@ -129,7 +156,7 @@
 
         }
 
-        #endregion
+         #endregion
 
         private Emgu.CV.UI.ImageBox imageBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -139,6 +166,9 @@
         private System.Windows.Forms.ToolStripMenuItem processingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem medianToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem meanToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gaussianBlurToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem cannyToolStripMenuItem;
     }
 }
 
