@@ -16,16 +16,21 @@ namespace MyView
 {
     public partial class ImProc : Form
     {
+        //this.imageBox1.MouseDoubleClick += ImageBox1_MouseDoubleClick;
         Mat src;
         Mat dst;
+        Image<Gray, Byte> gray;
+        Image<Gray, Byte> tmp;
+        Image<Gray, Byte> tmp1;
+        Image<Bgr, Byte> im;
         static public int par;
- 
-        public ImProc()
+
+         public ImProc()
         {
             InitializeComponent();
         }
 
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog Openfile = new OpenFileDialog();
             if (Openfile.ShowDialog() == DialogResult.OK)
@@ -39,13 +44,13 @@ namespace MyView
             }
         }
 
-        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CloseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             imageBox1.Image = src;
             imageBox1.Image = new Mat();
         }
 
-        private void medianToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MedianToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!src.IsEmpty)
             {
@@ -58,7 +63,7 @@ namespace MyView
             }
         }
 
-        private void meanToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MeanToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!src.IsEmpty)
             {
@@ -75,7 +80,7 @@ namespace MyView
         {
             imageBox1.Image = src;
         }
-        private void gaussianBlurToolStripMenuItem_Click(object sender, EventArgs e)
+        private void GaussianBlurToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dst = new Mat();
             dst = src.Clone();
@@ -83,13 +88,25 @@ namespace MyView
             imageBox1.Image = dst;
         }
 
-        private void cannyToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CannyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dst = new Mat();
             dst = src.Clone();
             CvInvoke.Canny(src, dst, 100, 200);
             imageBox1.Image = dst;
+        }
 
+
+        private void SobelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            im = src.ToImage< Bgr, Byte >();
+            tmp = im.Convert< Gray, Byte >();
+            tmp1 = tmp.Clone();
+            gray = tmp.Clone();
+            CvInvoke.Sobel(tmp, gray, DepthType.Cv8U, 1, 0, 3);
+            CvInvoke.Sobel(tmp, tmp1, DepthType.Cv8U, 0, 1, 3);
+            gray = gray.Add(tmp1);
+            imageBox1.Image = gray;
         }
     }
 }
