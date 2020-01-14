@@ -41,6 +41,9 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.cannyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.equalizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cLAHEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -101,7 +104,10 @@
             this.gaussianBlurToolStripMenuItem,
             this.toolStripMenuItem2,
             this.cannyToolStripMenuItem,
-            this.sobelToolStripMenuItem});
+            this.sobelToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.equalizationToolStripMenuItem,
+            this.cLAHEToolStripMenuItem});
             this.processingToolStripMenuItem.Name = "processingToolStripMenuItem";
             this.processingToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
             this.processingToolStripMenuItem.Text = "Processing";
@@ -146,6 +152,25 @@
             this.sobelToolStripMenuItem.Text = "Sobel";
             this.sobelToolStripMenuItem.Click += new System.EventHandler(this.SobelToolStripMenuItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
+            // 
+            // equalizationToolStripMenuItem
+            // 
+            this.equalizationToolStripMenuItem.Name = "equalizationToolStripMenuItem";
+            this.equalizationToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.equalizationToolStripMenuItem.Text = "Equalization";
+            this.equalizationToolStripMenuItem.Click += new System.EventHandler(this.EqualizationToolStripMenuItem_Click);
+            // 
+            // cLAHEToolStripMenuItem
+            // 
+            this.cLAHEToolStripMenuItem.Name = "cLAHEToolStripMenuItem";
+            this.cLAHEToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.cLAHEToolStripMenuItem.Text = "CLAHE";
+            this.cLAHEToolStripMenuItem.Click += new System.EventHandler(this.CLAHEToolStripMenuItem_Click);
+            // 
             // ImProc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -178,6 +203,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem cannyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem equalizationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cLAHEToolStripMenuItem;
     }
 }
 

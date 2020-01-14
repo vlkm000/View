@@ -25,7 +25,7 @@ namespace MyView
         Image<Bgr, Byte> im;
         static public int par;
 
-         public ImProc()
+        public ImProc()
         {
             InitializeComponent();
         }
@@ -71,7 +71,7 @@ namespace MyView
                 fs.ShowDialog();
                 dst = new Mat();
                 dst = src.Clone();
-                CvInvoke.Blur(src, dst, new Size(par,par), new Point(-1,-1) );
+                CvInvoke.Blur(src, dst, new Size(par, par), new Point(-1, -1));
                 imageBox1.Image = dst;
             }
 
@@ -82,31 +82,64 @@ namespace MyView
         }
         private void GaussianBlurToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dst = new Mat();
-            dst = src.Clone();
-            CvInvoke.GaussianBlur(src, dst, new Size(3, 3), 1.5);
-            imageBox1.Image = dst;
+            if (!src.IsEmpty)
+            {
+                dst = new Mat();
+                dst = src.Clone();
+                CvInvoke.GaussianBlur(src, dst, new Size(3, 3), 1.5);
+                imageBox1.Image = dst;
+            }
         }
 
         private void CannyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dst = new Mat();
-            dst = src.Clone();
-            CvInvoke.Canny(src, dst, 100, 200);
-            imageBox1.Image = dst;
+            if (!src.IsEmpty)
+            {
+                dst = new Mat();
+                dst = src.Clone();
+                CvInvoke.Canny(src, dst, 100, 200);
+                imageBox1.Image = dst;
+            }
         }
 
 
         private void SobelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            im = src.ToImage< Bgr, Byte >();
-            tmp = im.Convert< Gray, Byte >();
-            tmp1 = tmp.Clone();
-            gray = tmp.Clone();
-            CvInvoke.Sobel(tmp, gray, DepthType.Cv8U, 1, 0, 3);
-            CvInvoke.Sobel(tmp, tmp1, DepthType.Cv8U, 0, 1, 3);
-            gray = gray.Add(tmp1);
-            imageBox1.Image = gray;
+            if (!src.IsEmpty)
+            {
+                im = src.ToImage<Bgr, Byte>();
+                tmp = im.Convert<Gray, Byte>();
+                tmp1 = tmp.Clone();
+                gray = tmp.Clone();
+                CvInvoke.Sobel(tmp, gray, DepthType.Cv8U, 1, 0, 3);
+                CvInvoke.Sobel(tmp, tmp1, DepthType.Cv8U, 0, 1, 3);
+                gray = gray.Add(tmp1);
+                imageBox1.Image = gray;
+            }
+        }
+
+        private void EqualizationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!src.IsEmpty)
+            {
+                im = src.ToImage<Bgr, Byte>();
+                tmp = im.Convert<Gray, Byte>();
+                gray = tmp.Clone();
+                CvInvoke.EqualizeHist(tmp, gray);
+                imageBox1.Image = gray;
+            }
+        }
+
+        private void CLAHEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!src.IsEmpty)
+            {
+                im = src.ToImage<Bgr, Byte>();
+                tmp = im.Convert<Gray, Byte>();
+                gray = tmp.Clone();
+                CvInvoke.CLAHE(tmp, 20, new Size(32, 32), gray);
+                imageBox1.Image = gray;
+            }
         }
     }
 }

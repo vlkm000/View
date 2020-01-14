@@ -46,9 +46,9 @@
             this.LabelSize.AutoSize = true;
             this.LabelSize.Location = new System.Drawing.Point(51, 39);
             this.LabelSize.Name = "LabelSize";
-            this.LabelSize.Size = new System.Drawing.Size(35, 17);
+            this.LabelSize.Size = new System.Drawing.Size(30, 17);
             this.LabelSize.TabIndex = 1;
-            this.LabelSize.Text = "Size";
+            this.LabelSize.Text = "Par";
             // 
             // buttonSize
             // 
@@ -69,7 +69,7 @@
             this.Controls.Add(this.LabelSize);
             this.Controls.Add(this.textBox_Size);
             this.Name = "FilterSize";
-            this.Text = "FilterSize";
+            this.Text = "FilterPar";
             this.ResumeLayout(false);
             this.PerformLayout();
 
